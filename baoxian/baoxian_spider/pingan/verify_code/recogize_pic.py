@@ -7,7 +7,7 @@ import re
 import sys
 import codecs
 
-path ='C:\\Users\\think5\\PycharmProjects\\dongxu\\baoxian\\get_verify_pic\\pics'
+path ='C:\\Users\\think5\\PycharmProjects\\dongxu\\baoxian\\get_verify_pic(pingan)\\pics'
 files = os.listdir(path)
 
 for i in range(0,len(files)):

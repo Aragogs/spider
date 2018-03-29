@@ -163,6 +163,48 @@ class GetFreeProxy(object):
                 yield ':'.join(tr.xpath('./td/text()')[0:2])
 
 
+    @staticmethod
+    def freeProxyEighth():
+        """
+        自己添加的
+        中国IP地址http://cn-proxy.com/
+        """
+        url = 'http://cn-proxy.com/'
+
+        tree = getHtmlTree(url)
+        proxy_list = tree.xpath('//table[@class="sortable"]/tbody/tr')
+        for tr in proxy_list[:-1]:
+            yield ':'.join(tr.xpath('td/text()')[0:2])
+
+    @staticmethod
+    def freeProxyNinth():
+        """
+        自己添加的
+        中国IP地址http://lab.crossincode.com/proxy/
+        """
+        url = 'http://lab.crossincode.com/proxy/'
+
+        tree = getHtmlTree(url)
+        proxy_list = tree.xpath('//table[@class="table table-bordered proxy-index-table"]/tr')
+        for tr in proxy_list[1:]:
+            yield ':'.join(tr.xpath('td/text()')[0:2])
+
+    @staticmethod
+    def freeProxyTenth():
+        """
+        自己添加的
+        中国IP地址http://www.ip3366.net/
+        """
+
+        url = "http://www.ip3366.net/free/?page={page}"
+        for page in range(1, 5):
+            page_url = url.format(page=page)
+            tree = getHtmlTree(page_url)
+            proxy_list = tree.xpath('//table[@class="table table-bordered table-striped"]/tbody/tr')
+            for tr in proxy_list:
+                yield ':'.join(tr.xpath('td/text()')[0:2])
+
+
 if __name__ == '__main__':
     gg = GetFreeProxy()
     # for e in gg.freeProxyFirst():

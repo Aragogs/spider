@@ -204,6 +204,22 @@ class GetFreeProxy(object):
             for tr in proxy_list:
                 yield ':'.join(tr.xpath('td/text()')[0:2])
 
+    @staticmethod
+    def freeProxyEleventh():
+        """
+        自己添加的
+        中国IP地址http://www.kxdaili.com/dailiip
+        """
+
+        url = "http://www.kxdaili.com/dailiip/1/{page}.html#ip"
+        for page in range(1, 10):
+            page_url = url.format(page=page)
+            tree = getHtmlTree(page_url)
+            proxy_list = tree.xpath('//table[@class="ui table segment"]/tbody/tr')
+            for tr in proxy_list:
+                yield ':'.join(tr.xpath('td/text()')[0:2])
+
+
 
 if __name__ == '__main__':
     gg = GetFreeProxy()

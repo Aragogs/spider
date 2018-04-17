@@ -4,7 +4,7 @@
 ''''' 
 PhantomJS+selenimu访问微信公众号
 通过搜狗搜索中的微信搜索入口来爬取 
-2017-04-12 by Jimy_fengqi 
+2017-04-12 by lang 
 '''
 from urllib.parse import quote
 from pyquery import PyQuery as pq

@@ -99,7 +99,7 @@ def validUsefulProxy(proxy):
         # 超过20秒的代理就不要了
         r = requests.get('http://httpbin.org/ip', proxies=proxies, timeout=20, verify=False)
         if r.status_code == 200:
-            logger.info('%s is ok' % proxy)
+            #logger.info('%s is ok' % proxy)
             return True
     except Exception as e:
         logger.debug(e)

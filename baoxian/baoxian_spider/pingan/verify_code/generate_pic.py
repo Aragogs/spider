@@ -14,8 +14,8 @@ import time
 #            'Upgrade-Insecure-Requests':'1',
 #            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'}
 #
-# data = requests.get(url,headers = headers)
-# data_text = data.text
+# data_treat = requests.get(url,headers = headers)
+# data_text = data_treat.text
 # print(data_text)
 
 '''得到验证码'''

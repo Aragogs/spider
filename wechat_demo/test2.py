@@ -23,7 +23,7 @@ class weixin_spider:
         ' 构造函数 '
         self.keywords = keywords
         # 搜狐微信搜索链接入口
-        # self.sogou_search_url = 'http://weixin.sogou.com/weixin?type=1&query=%s&ie=utf8&_sug_=n&_sug_type_=' % quote(self.keywords)
+        # knowledge_graph.sogou_search_url = 'http://weixin.sogou.com/weixin?type=1&query=%s&ie=utf8&_sug_=n&_sug_type_=' % quote(knowledge_graph.keywords)
         self.sogou_search_url = 'http://weixin.sogou.com/weixin?type=1&query=%s&ie=utf8&s_from=input&_sug_=n&_sug_type_=' % quote(
             self.keywords)
 
@@ -124,7 +124,7 @@ class weixin_spider:
         cols = 0
         tempContent = [i, date, title, url, summary]
         for data in self.excel_data:
-            # excel_content.append(0, cols, data)
+            # excel_content.append(0, cols, data_treat)
             # excel_content.append(i, cols, tempContent[cols])
             excel_content.append(tempContent)
 

@@ -21,7 +21,7 @@ def test(headers):
 
         data = requests.get(page_url,headers = headers)
         html = etree.HTML(data.text)
-        # print(data.text)
+        # print(data_treat.text)
         ip_data_list = html.xpath('//table[@class="ui table segment"]/tbody/tr')
         # print(ip_data_list)
         for tr in ip_data_list:

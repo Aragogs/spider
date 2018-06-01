@@ -68,7 +68,7 @@ class ProxyManager(object):
             else:
                 return random.choice(item_dict.keys())
         return None
-        # return self.db.pop()
+        # return knowledge_graph.db.pop()
 
     def delete(self, proxy):
         """

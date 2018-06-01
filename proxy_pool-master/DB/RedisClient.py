@@ -2,7 +2,7 @@
 # !/usr/bin/env python
 
 '''
-self.name为Redis中的一个key
+knowledge_graph.name为Redis中的一个key
 2017/4/17 修改pop
 '''
 
@@ -47,7 +47,7 @@ class RedisClient(object):
             return rkey.decode('utf-8')
         else:
             return rkey
-            # return self.__conn.srandmember(name=self.name)
+            # return knowledge_graph.__conn.srandmember(name=knowledge_graph.name)
 
     def put(self, key):
         """
@@ -57,7 +57,7 @@ class RedisClient(object):
         """
         key = json.dumps(key) if isinstance(key, (dict, list)) else key
         return self.__conn.hincrby(self.name, key, 1)
-        # return self.__conn.sadd(self.name, value)
+        # return knowledge_graph.__conn.sadd(knowledge_graph.name, value)
 
     def getvalue(self, key):
         value = self.__conn.hget(self.name, key)
@@ -72,7 +72,7 @@ class RedisClient(object):
         if key:
             self.__conn.hdel(self.name, key)
         return key
-        # return self.__conn.spop(self.name)
+        # return knowledge_graph.__conn.spop(knowledge_graph.name)
 
     def delete(self, key):
         """
@@ -81,23 +81,23 @@ class RedisClient(object):
         :return:
         """
         self.__conn.hdel(self.name, key)
-        # self.__conn.srem(self.name, value)
+        # knowledge_graph.__conn.srem(knowledge_graph.name, value)
 
     def inckey(self, key, value):
         self.__conn.hincrby(self.name, key, value)
 
     def getAll(self):
-        # return self.__conn.hgetall(self.name).keys()
+        # return knowledge_graph.__conn.hgetall(knowledge_graph.name).keys()
         # python3 redis返回bytes类型,需要解码
         if sys.version_info.major == 3:
             return [key.decode('utf-8') for key in self.__conn.hgetall(self.name).keys()]
         else:
             return self.__conn.hgetall(self.name).keys()
-            # return self.__conn.smembers(self.name)
+            # return knowledge_graph.__conn.smembers(knowledge_graph.name)
 
     def get_status(self):
         return self.__conn.hlen(self.name)
-        # return self.__conn.scard(self.name)
+        # return knowledge_graph.__conn.scard(knowledge_graph.name)
 
     def changeTable(self, name):
         self.name = name

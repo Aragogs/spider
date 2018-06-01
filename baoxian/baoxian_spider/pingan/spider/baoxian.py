@@ -46,12 +46,12 @@ def get_verify_code(fin_cookie):
         pic_data = requests.get(verify_code_url,headers = verify_headers)
         pic_info = pic_data.content
 
-        file_name = 'data' +'.jpg '
+        file_name = 'data_treat' +'.jpg '
 
         with open(file_name, 'wb') as file:
             file.write(pic_data.content)
 
-        image = Image.open('data.jpg')
+        image = Image.open('data_treat.jpg')
         code = pytesseract.image_to_string(image)
         print(code)
 
